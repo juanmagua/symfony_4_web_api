@@ -28,15 +28,18 @@ class MovieController extends FOSRestController
      * Creates an Movie resource
      * @Rest\Post("/addmovie/{title}/{releaseYear}")
      **/
-    public function addMovie(EntityManagerInterface $em,MovieRepository $movieRepository, string $title, int $releaseYear): View
+    public function addMovie(EntityManagerInterface $em, MovieRepository $movieRepository, string $title, int $releaseYear): View
     {
+        if($movieRepository->findOne($title, $releaseYear))
+            return View::create("Movie is already", Response::HTTP_OK);
+
         $movie = new Movie();
         $movie->setTitle($title);
         $movie->setReleaseYear($releaseYear);
         $em->persist($movie);
         $em->flush();
 
-        $movieRepository = $movieRepository->findOneByTitle($title);
+        $movieRepository = $movieRepository->findOne($title, $releaseYear);
 
         // In case our POST was a success we need to return a 201 HTTP CREATED response
         return View::create($movieRepository, Response::HTTP_CREATED);
@@ -55,9 +58,14 @@ class MovieController extends FOSRestController
         if ($movie) {
             $em->remove($movie);
             $em->flush();
+
+             // In case our DELETE was a success we need to return a 204 HTTP NO CONTENT response. The object is deleted.
+            return View::create([], Response::HTTP_NO_CONTENT);
+        }else{
+             // In case our DELETE was a success we need to return a 204 HTTP NO CONTENT response. The object is deleted.
+            return View::create(["There is no movie with that title"], Response::HTTP_OK);
         }
 
-        // In case our DELETE was a success we need to return a 204 HTTP NO CONTENT response. The object is deleted.
-        return View::create([], Response::HTTP_NO_CONTENT);
+       
     }
 }

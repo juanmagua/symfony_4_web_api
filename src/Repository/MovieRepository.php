@@ -34,6 +34,20 @@ class MovieRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
+
+    public function findOne($title, $releaseYear)
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.title = :title')
+            ->andWhere('m.releaseYear = :releaseYear')
+            ->setParameter('title', $title)
+            ->setParameter('releaseYear', $releaseYear)
+            ->orderBy('m.id', 'ASC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
     
 
 
