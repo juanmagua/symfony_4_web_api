@@ -9,8 +9,8 @@ API:
 # Requirements
 
 ```
-PHP 7.2.* <br/>
-MYSQL <br/>
+PHP 7.2.* 
+MYSQL 
 ```
 
 # Create Symfony Project
