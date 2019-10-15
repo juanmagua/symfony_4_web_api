@@ -21,22 +21,26 @@ composer create-project symfony/skeleton  {project_name}
 
 # Check Install
 
+```
 cd project_name
 
 php -S 127.0.0.1:8000 -t public
+```
 
 # Bundle install
 
+```
 composer require symfony/orm-pack <br/>
 composer require sensio/framework-extra-bundle <br/>
 composer friendsofsymfony/rest-bundle <br/>
 composer require symfony/maker-bundle --dev <br/>
 composer require symfony/property-access <br/>
+```
 
 # Create Database
 
-mysql -u root -p
-CREATE DATABASE {your_database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+mysql -u root -p  <br/>
+CREATE DATABASE {your_database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; <br/>
 quit
 
 # Add Parameter in .env
