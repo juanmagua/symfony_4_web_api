@@ -1,4 +1,4 @@
-# symfony_4_web_api
+# Symfony 4 - Rest API
 
 Create a Movies DB app where movies could be added and removed and for each movie 
 we have a title and release year. Store all the data in the DB. 
@@ -8,12 +8,16 @@ API:
 
 # Requirements
 
-PHP 7.2.*
-MYSQL
+```
+PHP 7.2.* <br/>
+MYSQL <br/>
+```
 
 # Create Symfony Project
 
+```
 composer create-project symfony/skeleton  {project_name}
+```
 
 # Check Install
 
@@ -23,11 +27,11 @@ php -S 127.0.0.1:8000 -t public
 
 # Bundle install
 
-composer require symfony/orm-pack
-composer require sensio/framework-extra-bundle
-composer friendsofsymfony/rest-bundle
-composer require symfony/maker-bundle --dev
-composer require symfony/property-access
+composer require symfony/orm-pack <br/>
+composer require sensio/framework-extra-bundle <br/>
+composer friendsofsymfony/rest-bundle <br/>
+composer require symfony/maker-bundle --dev <br/>
+composer require symfony/property-access <br/>
 
 # Create Database
 
@@ -41,13 +45,13 @@ DATABASE_URL=mysql://root@127.0.0.1:3306/{your_database}
 
 # Create Entity
 
-Create Entity/Repository Movie
+Create Entity/Repository Movie <br/>
 php bin/console make:entity
 
-Generator Migrate
+Generator Migrate <br/>
 php bin/console make:migration
 
-Run Migrate
+Run Migrate <br/>
 php bin/console doctrine:migrations:migrate
 
 
