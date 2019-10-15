@@ -23,7 +23,7 @@ php -S 127.0.0.1:8000 -t public
 
 # Bundle install
 
-composer require symfony/orm-pack 
+composer require symfony/orm-pack
 composer require sensio/framework-extra-bundle
 composer friendsofsymfony/rest-bundle
 composer require symfony/maker-bundle --dev
