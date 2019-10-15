@@ -30,24 +30,33 @@ php -S 127.0.0.1:8000 -t public
 # Bundle install
 
 ```
-composer require symfony/orm-pack <br/>
-composer require sensio/framework-extra-bundle <br/>
+composer require symfony/orm-pack 
+composer require sensio/framework-extra-bundle 
 composer friendsofsymfony/rest-bundle <br/>
-composer require symfony/maker-bundle --dev <br/>
-composer require symfony/property-access <br/>
+composer require symfony/maker-bundle --dev 
+composer require symfony/property-access 
 ```
 
 # Create Database
 
-mysql -u root -p  <br/>
-CREATE DATABASE {your_database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; <br/>
+```
+mysql -u root -p  
+CREATE DATABASE {your_database} CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; 
 quit
+```
+
 
 # Add Parameter in .env
+```
 
 DATABASE_URL=mysql://root@127.0.0.1:3306/{your_database} 
 
+```
+
+
 # Create Entity
+
+```
 
 Create Entity/Repository Movie <br/>
 php bin/console make:entity
@@ -57,6 +66,9 @@ php bin/console make:migration
 
 Run Migrate <br/>
 php bin/console doctrine:migrations:migrate
+
+```
+
 
 
 # Run APP
